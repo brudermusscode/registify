@@ -38,4 +38,5 @@
 docker-compose.yml
 Dockerfile
 Gemfile.lock
+.rubocop.yml
 TODO
