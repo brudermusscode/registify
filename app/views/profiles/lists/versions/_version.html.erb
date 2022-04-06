@@ -1,0 +1,46 @@
+<div class="card mb-1">
+  <div class="card-body">
+    <% if resource.event == 'create' %>
+      <div>
+        <span>🪄 <strong><%= resource.actor.is_a?(String) ? resource.whodunnit : resource.actor.email %></strong> <%= t('fields.list_version.create') %></span>
+      </div>
+    <% elsif resource.event == 'update' %>
+      <% if !resource.changeset[:name] && !resource.changeset[:description] %>
+        <div>
+          <span>🪄 <strong><%= resource.actor.is_a?(String) ? resource.whodunnit : resource.actor.email %></strong> <%= t('fields.list_version.create_list_item') %></span>
+        </div>
+      <% else %>
+        <div style="border-bottom:1px solid rgba(0,0,0,.08);padding-bottom:1em;margin-bottom:1em;">
+          <span>🪄 <strong><%= resource.actor.is_a?(String) ? resource.whodunnit : resource.actor.email %></strong> <%= t('fields.list_version.update') %></span>
+        </div>
+        <div class="mb-3">
+          <% if resource.changeset[:name] %>
+            <div class="mb-1"><strong><%= t('fields.name') %></strong></div>
+            <div class="d-flex">
+              <div style="width:50%;background:#FCE4EC;border-radius:6px 0 0 6px;padding:12px;"><%= resource.changeset[:name][0] %></div>
+              <div style="width:50%;background:#E8F5E9;border-radius:0 6px 6px 0;padding: 12px;"><%= resource.changeset[:name][1] %></div>
+            </div>
+          <% end %>
+        </div>
+        <div class="mb-3">
+          <% if resource.changeset[:description] %>
+            <div class="mb-1"><strong><%= t('fields.description') %></strong></div>
+            <% if resource.changeset[:description][0].blank? %>
+              <div><%= '➕ ' + resource.changeset[:description][1] %></div>
+            <% elsif resource.changeset[:description][1].blank? %>
+              <div style="font-style:italic;"><%= '❌ ' + resource.changeset[:description][0] %></div>
+            <% else %>
+              <div class="d-flex">
+                <div style="width:50%;background:#FCE4EC;border-radius:6px 0 0 6px;padding:12px;"><%= resource.changeset[:description][0] %></div>
+                <div style="width:50%;background:#E8F5E9;border-radius:0 6px 6px 0;padding: 12px;"><%= resource.changeset[:description][1] %></div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+    <div class="text-center">
+      <span style="font-size:.8em;color:rgba(0,0,0,.24);"><strong><%= distance_of_time_in_words Time.now, resource.created_at %></strong> <%= t('fields.ago') %></span>
+    </div>
+  </div>
+</div>

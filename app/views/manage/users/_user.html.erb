@@ -1,0 +1,26 @@
+<div class="card mb-2">
+  <div class="card-body" style="position:relative">
+    <div class="model-link"><%= link_to resource.email, [resource.profile] %></div>
+    <div class="d-inline-flex mt-2" style="border:1px solid rgba(0,0,0,.12);border-radius:1em;padding:.2em .6em;">
+      <span style="font-size:.8em;"><%= resource.confirmed? ? '✅ Bestätigt' : '❌ Nicht bestätigt' %></span>
+    </div>
+    <% if resource.freed? %>
+      <div class="d-inline-flex" style="border:1px solid rgba(0,0,0,.12);border-radius:1em;padding:.2em .6em;">
+        <span style="font-size:.8em;">✅ Freigeschaltet</span>
+      </div>
+    <% end %>
+    <div class="d-inline-flex" style="border:1px solid rgba(0,0,0,.12);border-radius:1em;padding:.2em .6em;">
+      <% if resource.activated? %>
+        <span style="font-size:.8em;">🌖 Aktiviert</span>
+      <% else %>
+        <span style="font-size:.8em;">🌒 Deaktiviert</span>
+      <% end %>
+    </div>
+    <% if resource.locked? %>
+      <div class="d-inline-flex" style="border:1px solid rgba(0,0,0,.12);border-radius:1em;padding:.2em .6em;">
+        <span style="font-size:.8em;">🚨 Gesperrt</span>
+      </div>
+    <% end %>
+    <%= render 'manage/users/dropdown_actions', resource: resource %>
+  </div>
+</div>

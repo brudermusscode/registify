@@ -1,0 +1,10 @@
+<%= link_to I18n.t('buttons.back'), :back, class: 'btn btn-light mb-3' %>
+<div class="text-center">
+  <div><%= @list.name %></div>
+  <h3><%= t('fields.list_permission.permissions') %></h3>
+</div>
+<section class="d-flex justify-content-start gap-1" style="flex-wrap:wrap;">
+  <% @permissions.each do |perm| %>
+    <%= render 'profiles/lists/permissions/permission', resource: perm %>
+  <% end %>
+</section>

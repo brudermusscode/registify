@@ -1,0 +1,17 @@
+<dropdown-menu class="floats right">
+  <span class="material-icons md-24">more_vert</span>
+  <menu>
+    <ul class="std">
+      <% if !params[:id] %>
+        <li><%= link_to '✏️  ' + t('buttons.edit'), [:edit, :manage, resource] %></li>
+      <% end %>
+      <li><%= button_to '❌  ' + t('buttons.delete'), [:manage, resource], method: :delete, data: { confirm: "Are you sure?" } %></li>
+      <div style="border-top:1px solid rgba(0,0,0,.05);margin:.8em 0;"></div>
+      <li>
+        <%= link_to '➕ ' + t('buttons.list.create'), [:new, :manage, resource, :list] %>
+      </li>
+      <div style="border-top:1px solid rgba(0,0,0,.05);margin:.8em 0;"></div>
+      <li><%= link_to '📔  ' + t('buttons.lists'), [:manage, resource, :lists] %></li>
+    </ul>
+  </menu>
+</dropdown-menu>

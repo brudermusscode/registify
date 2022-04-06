@@ -1,0 +1,12 @@
+<div class="card mb-2">
+  <div class="card-body">
+    <div class="d-flex justify-content-between">
+      <span><strong><%= list.name %></strong></span>
+      <span style="font-size:.8em;color:rgba(0,0,0,.24);">Vor <strong><%= distance_of_time_in_words Time.now, list.updated_at %></strong> bearbeitet</span>
+    </div>
+    <div class="mb-3">
+      <span style="color:rgba(0,0,0,.24);"><%= role.email %></span>
+    </div>
+    <%= render 'actions', role: role, list: list %>
+  </div>
+</div>

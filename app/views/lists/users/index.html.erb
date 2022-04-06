@@ -1,0 +1,12 @@
+<%= render 'lists/shared/header' %>
+<% if @lists.any? %>
+  <% @lists.each do |list| %>
+    <%= render 'lists/users/list', role: list.ownable, list: list %>
+  <% end %>
+<% else %>
+  <div class="card">
+    <div class="card-body text-center">
+      <%= t('fields.list.none') %>
+    </div>
+  </div>
+<% end %>

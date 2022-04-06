@@ -1,0 +1,9 @@
+<div class="card">
+  <div class="card-body text-center mt-3 mb-3">
+    <div>You were invited to join a list</div>
+    <div style="font-size:2em;"><%= resource.list.name %></div>
+    <div class="model-link">📍 <%= link_to resource.list.ownable.email, [resource.list.ownable.profile] %></div>
+    <div class="mt-3">
+      <%= button_to t('buttons.accept'), [:accept, resource.list.ownable.profile, resource.list, resource], class: 'btn btn-success', method: :post, params: { list_permission: { list_id: resource.list.id } } %>
+    </div>
+  </div>

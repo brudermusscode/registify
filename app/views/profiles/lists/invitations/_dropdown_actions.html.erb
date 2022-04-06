@@ -1,0 +1,12 @@
+<dropdown-menu class="floats right">
+  <span class="material-icons md-24">more_vert</span>
+  <menu>
+    <ul class="std">
+      <li class="disabled">
+        <a>Copy</a>
+      </li>
+      <div style="border-top:1px solid rgba(0,0,0,.06);margin:.6em 0;"></div>
+      <li><%= button_to t('buttons.delete'), [resource.list.ownable.profile, resource.list, resource], method: :delete %></li>
+    </ul>
+  </menu>
+</dropdown-menu>

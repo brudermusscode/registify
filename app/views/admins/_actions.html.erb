@@ -1,0 +1,7 @@
+<div class="actions d-flex gap-1">
+  <% if !params[:id] %>
+    <%= link_to I18n.t('buttons.edit'), edit_admin_path(admin.id), class: 'btn btn-primary btn-sm' %>
+  <% end %>
+  <%= button_to I18n.t('buttons.delete'), admin_path(admin.id), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger btn-sm' %> |
+  <%= link_to t('buttons.lists'), admin_lists_path(admin), class: 'btn btn-outline-primary btn-sm' %>
+</div>

@@ -1,0 +1,73 @@
+version: '3'
+
+volumes:
+  mysql:
+  bundle_data:
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      - "DATABASE_HOST=mysql"
+      - "DATABASE_USER=root"
+      - "DATABASE_PASSWORD=secret"
+    working_dir: /app
+    volumes:
+      - .:/app:z
+      - bundle_data:/usr/local/bundle
+    tmpfs:
+      - /tmp
+      - /app/tmp
+    command: rails s -p 80 -b 0.0.0.0
+    ports:
+      - 80:80
+    depends_on:
+      - mysql
+
+  worker:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      - "DATABASE_HOST=mysql"
+      - "DATABASE_USER=root"
+      - "DATABASE_PASSWORD=secret"
+    working_dir: /app
+    volumes:
+      - .:/app:z
+      - bundle_data:/usr/local/bundle
+    tmpfs:
+      - /tmp
+      - /app/tmp
+    command: rails jobs:work
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql
+    container_name: mysql
+    volumes:
+      - mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret
+    ports:
+      - 3306:80
+
+  pma:
+    image: phpmyadmin
+    container_name: pma
+    ports:
+      - 727:80
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: secret
+    depends_on:
+      - mysql
+
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - 3002:8025

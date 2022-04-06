@@ -1,0 +1,9 @@
+<div class="actions d-flex gap-1">
+  <% if !params[:id] %>
+    <%= link_to t('buttons.show'), admin_list_path(role, list), class: 'btn btn-outline-primary btn-sm' %>
+  <% end %>
+  <% if params[:action] != 'edit' %>
+    <%= link_to t('buttons.edit'), admin_edit_list_path(role, list), class: 'btn btn-primary btn-sm' %>
+  <% end %>
+  <%= button_to t('buttons.delete'), delete_admins_list_path(list), method: :delete, class: 'btn btn-danger btn-sm' %>
+</div>

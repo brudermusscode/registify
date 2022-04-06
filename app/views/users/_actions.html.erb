@@ -1,0 +1,29 @@
+<dropdown-menu class="floats right">
+  <span class="material-icons md-24">more_vert</span>
+  <menu>
+    <ul class="std">
+      <% if !params[:id] %>
+        <li><%= link_to I18n.t('buttons.edit'), edit_user_path(user.id) %></li>
+      <% end %>
+      <% if user.freed? %>
+        <% if !user.activated? %>
+          <li><%= button_to I18n.t('buttons.activate'), approve_user_path(user.id), method: :put %></li>
+        <% else %>
+          <li><%= button_to I18n.t('buttons.deactivate'), approve_user_path(user.id), method: :put %></li>
+        <% end %>
+        <% if user.locked? %>
+          <li><%= button_to I18n.t('buttons.unlock'), lock_user_path(user.id), method: :put %></li>
+        <% end %>
+      <% else %>
+        <li>
+          <button type="button" disabled>
+            <%= I18n.t('buttons.deactivate') %>
+          </button>
+        </li>
+      <% end %>
+      <li><%= link_to t('buttons.lists'), user_lists_path(user.id) %></li>
+      <div style="border-top:1px solid rgba(0,0,0,.05);margin:.8em 0;"></div>
+      <li><%= button_to t('buttons.delete'), user_path(user.id), method: :delete, data: { confirm: "Are you sure?" } %></li>
+    </ul>
+  </menu>
+</dropdown-menu>

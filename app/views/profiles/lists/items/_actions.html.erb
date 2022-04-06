@@ -1,0 +1,4 @@
+<div class="d-flex justify-content-start gap-1">
+  <%= link_to 'edit', [:edit, resource.list.ownable.profile, resource.list, resource], class: 'btn btn-sm btn-light material-icons md-24' %>
+  <%= button_to 'delete', [resource.list.ownable.profile, resource.list, resource], method: :delete, class: 'btn btn-sm btn-light material-icons md-24' %>
+</div>

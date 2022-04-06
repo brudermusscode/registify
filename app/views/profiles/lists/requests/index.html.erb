@@ -1,0 +1,8 @@
+<%= link_to I18n.t('buttons.back'), :back, class: 'btn btn-light mb-3' %>
+<div class="text-center">
+  <span><%= @list.name %></span>
+  <h3><%= t('fields.list.requests') %></h3>
+</div>
+<% @list_requests.each do |request| %>
+  <%= render 'profiles/lists/requests/request', resource: request %>
+<% end %>

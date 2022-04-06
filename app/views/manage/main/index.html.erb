@@ -1,0 +1,16 @@
+<%= render 'manage/shared/breadcrumps' %>
+<div class="cl"></div>
+<div class="text-center mb-3">
+  <span style="font-size:2em;">Hallo, <%= current_admin.username %></Span>
+  <p class="mb-3">Du befindest dich im Management-Bereich</p>
+  <br>
+</div>
+<div class="card">
+  <div class="card-body text-center mt-3 mb-3">
+    <span>Wo möchtest du hin?</span>
+    <div class="d-flex flex-wrap justify-content-center mt-2 gap-2">
+      <%= link_to t('administration.fields.user.users'), [:manage, :users], class: 'btn btn-sm btn-primary' %>
+      <%= link_to t('administration.fields.admin.admins'), [:manage, :admins], class: 'btn btn-sm btn-primary' %>
+    </div>
+  </div>
+</div>

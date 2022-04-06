@@ -1,0 +1,20 @@
+default: &default
+  adapter: mysql2
+  host: mysql
+  username: root
+  password: secret
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+  encoding: utf8mb4
+  reconnect: true
+
+development:
+  <<: *default
+  database: registify_dev
+test:
+  <<: *default
+  database: registify_test
+
+production:
+  <<: *default
+  database: registify_prod

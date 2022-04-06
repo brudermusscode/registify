@@ -1,0 +1,299 @@
+en:
+  # -----
+  # active record standarts
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      blank: "has to be filled out"
+
+  activerecord:
+    attributes:
+      admin:
+        login: "Username/Mail address"
+        username: "Username"
+        email: "E-Mail Adresse"
+        birthday: "Geburtstag"
+        born_at: "Geburtstag"
+        new_password: "Neues Passwort"
+        new_password_confirmation: "Neues Passwort bestätigen"
+        password: "Passwort"
+        password_confirmation: "Passwort bestätigen"
+        current_password: "Aktuelles Passwort"
+        confirmation_token: "Bestätigungs-Token"
+        stay_logged_in: "Eingeloggt bleiben?"
+
+      user:
+        login: 'Username/E-Mail'
+        username: "Nutzername"
+        email: "E-Mail Adresse"
+        birthday: "Geburtstag"
+        born_at: "Geburtstag"
+        new_password: "Neues Passwort"
+        new_password_confirmation: "Neues Passwort bestätigen"
+        password: "Passwort"
+        password_confirmation: "Passwort bestätigen"
+        current_password: "Aktuelles Passwort"
+        confirmation_token: "Bestätigungs-Token"
+        stay_logged_in: "Eingeloggt bleiben?"
+
+      list:
+        name: "Name"
+        description: "Beschreibung"
+        user_id: 'Kundennummer'
+        user: 'Kundennummer'
+
+      admin_list:
+        name: 'Name'
+        description: 'Beschreibung'
+        admin_id: 'Admin-ID'
+        admin: 'Admin-ID'
+
+      list_item:
+        text: 'Text'
+
+  # -----
+  # Page translations
+  name: "Kundenportal"
+  navigation:
+    home: "Home"
+    lists: "Listen"
+    users: "Kunden"
+    admins: "Administratoren"
+    lists: "Listen"
+    logged_in_as: "Eingeloggt als"
+
+  mail:
+    unlocked_by_admin: "Dein Kundenkonto wurde entsperrt"
+
+  buttons:
+    cancel: 'Abbrechen'
+    lists: 'Listen'
+    show: "Anzeigen"
+    free: "Freischalten"
+    create: 'Erstellen'
+    not_freeable: "Erwarte Bestätigung"
+    add: "Hinzufügen"
+    sign_up: "Registrieren"
+    sign_in: "Einloggen"
+    forgot_password: "Passwort vergessen?"
+    forgot_password_send_instructions: "Link zum Zurücksetzen anfordern"
+    forgot_password_confirm: "Passwort ändern"
+    no_confirmation_mail: "Keine Bestätigungsmail erhalten?"
+    confirmation_mail_submit: "Neuen Bestätigungslink senden"
+    no_unlock_mail: "Keine Entsperrungsmail erhalten?"
+    unlock_mail_submit: "Neuen Entsperrungslink senden"
+    back: "Zurück"
+    account_settings: "Kontoeinstellungen"
+    logout: "Ausloggen"
+    save: "Speichern"
+    delete: "Löschen"
+    delete_admin: "Administrator löschen"
+    edit: "Bearbeiten"
+    activate: "Aktivieren"
+    deactivate: "Deaktivieren"
+    lock: "Sperren"
+    unlock: "Entsperren"
+    profile: 'Profil'
+    ask_for_permissions: 'Teilnahme anfragen'
+    list_request_sent: 'Teilnahme angefragt'
+    generate_invitation: 'Einladen'
+    admin:
+      session:
+        session: 'Management-Bereich'
+    list:
+      create: 'Liste erstellen'
+      history: 'Historie'
+    list_request:
+      request: 'Teilnahme anfragen'
+      requested: 'Teilnahme angefragt'
+      cancel_request: 'Abbrechen'
+      pending: 'Anfragen'
+    list_invitation:
+      create: 'Einladen'
+      invitations: 'Einladungen'
+    list_permission:
+      take: 'Rechte genimmt'
+      permissions: 'Teilnehmer'
+
+  fields:
+    you: 'Du'
+    password: "Passwort"
+    password_confirmation: "Passwort bestätigen"
+    password_leave_free: "Frei lassen, wenn keine Änderung gewünscht"
+    password_current: "Aktuelles Passwort"
+    password_current_explanation: "Damit wir deine Änderungen bestätigen können"
+    password_minimum_characters: "Zeichen min."
+    more_options: "Weitere Optionen"
+    required: "* sind Pflichtfelder"
+    add_list_item: "Was möchtest du hinzufügen?"
+    admin_edit: "Wurde von einem Admin bearbeitet/erstellt"
+    user_id_exists: 'Versichere dich, dass die Kundennummer auf ein gültiges Kundenkonto verweist'
+    admin_id_exists: 'Versichere dich, dass die Admin-ID auf ein gültiges Konto eines Administratoren verweist'
+    history: 'Änderungen'
+    ago: 'her'
+    description: 'Beschreibung'
+    list:
+      subscribers: 'Teilnehmer'
+      lists: 'Listen'
+      none: 'Keine Listen erstellt'
+      creator_not_existing: 'Ersteller existiert nicht mehr'
+      requests: 'Anfragen'
+      no_description: "Keine Beschreibung"
+      description: 'Beschreibung'
+      owner: 'Besitzer'
+      creator: 'Erstellt von'
+    list_version:
+      update: 'hat diese Liste bearbeitet'
+      create: 'hat diese Liste erstellt'
+      create_list_item: 'hat etwas zur Liste hinzugefügt'
+    list_request:
+      none: 'Keine Anfragen'
+      pending: 'Teilnahme-Anfragen'
+    list_invitation:
+      last_use: 'Letzte Nutzung'
+    list_permission:
+      none: 'Keine Teilnehmer'
+      lists: 'Gemeinsame Listen'
+      permissions: 'Teilnehmer'
+
+  flash:
+    no_permissions: 'Du hast nicht genügend Rechte dafür'
+    please_login: 'Bitte logge dich ein'
+    list:
+      create: 'Liste wurde erstellt'
+      edit: 'Liste wurde bearbeitet'
+      delete: 'Liste wurde gelöscht'
+    list_item:
+      create: 'Eintrag wurde erstellt'
+      edit: 'Eintrag wurde bearbeitet'
+      delete: 'Eintrag wurde gelöscht'
+      fail_create: 'Text muss ausgefüllt sein'
+      fail_edit: 'Eintrag konnte nicht bearbeitet werden'
+      missing_permissions: 'Du hast nicht genügend Rechte, diese Aktion zu tätigen'
+    list_request:
+      create: 'Teilnahme angefragt'
+      fail_create: 'Anfrage konnte nicht gesendet werden'
+      delete: 'Anfrage abgebrochen'
+      accept: 'Anfrage angenommen. Der Kunde kann nun an deiner Liste teilnehmen'
+      fail_accept: 'Anfrage konnte nicht angenommen werden'
+    list_invitation:
+      accept: 'Einladung angenommen, du kannst nun an dieser Liste teilnehmen'
+      fail_accept: 'Einladung konnte nicht angenommen werden'
+      fail_create: 'Einladung konnte nicht erstellt werden'
+      delete: 'Einladung gelöscht'
+      already_taken: 'Einladung bereits angenommen'
+    list_permission:
+      delete: 'Rechte genimmt'
+    user:
+      user: 'Kunde'
+      create: 'Kundenkonto erstellt'
+      edit: 'Kundenkonto bearbeitet'
+      delete: 'Kundenkonto gelöscht'
+      fail_create: 'Kundenkonto nicht erstellt'
+      free: 'Kundenkonto freigeschaltet'
+      fail_free: 'Kundenkonto konnte nicht freigeschaltet werden'
+      fail_free_needs_approve: 'Kundenkonto muss erst bestätigt werden'
+      activate: 'Kundenkonto aktiviert'
+      deactivate: 'Kundenkonto deaktiviert'
+      unlock: 'Kundenkonto entsperrt'
+    admin:
+      create: 'Admin erstellt'
+      delete: 'Admin gelöscht'
+
+  administration:
+    fields:
+      user:
+        none: 'Keine Kunden'
+        user: 'Kunde'
+        users: 'Kunden'
+        create: 'Kunde erstellen'
+        edit: 'Kunde bearbeiten'
+        list:
+          edit: 'Kundenliste bearbeiten'
+          create: 'Liste für Kunde erstellen'
+      admin:
+        none: 'Keine Administratoren'
+        admins: 'Administratoren'
+        create: 'Administrator erstellen'
+        edit: 'Administrator bearbeiten'
+        list:
+          edit: 'Administratorenliste bearbeiten'
+          create: 'Liste für Administrator erstellen'
+      list:
+        none: 'Keine Listen erstellt'
+        create: 'Liste erstellen'
+        lists: 'Listen'
+
+    flash:
+      user:
+        create: 'Kunde erstellt'
+        delete: 'Kunde gelöscht'
+        edit: 'Kunde bearbeitet & gespeichert'
+        fail_create: 'Kundenkonto nicht erstellt'
+        free: 'Kunde freigeschaltet'
+        fail_free: 'Kunde konnte nicht freigeschaltet werden'
+        fail_free_needs_approve: 'Kunde muss erst bestätigt werden'
+        activate: 'Kunde aktiviert'
+        deactivate: 'Kunde deaktiviert'
+        unlock: 'Kunde entsperrt'
+        fail_confirm: 'Kunde ist nicht bestätigt'
+      admin:
+        create: 'Administrator erstellt'
+        delete: 'Administrator gelöscht'
+        edit: 'Administrator bearbeitet & gespeichert'
+        require_last: 'Der letzte Administrator kann nicht gelöscht werden'
+      list:
+        edit: 'Liste bearbeitet & gespeichert'
+        delete: 'Liste gelöscht'
+        create: 'Liste erstellt'
+
+    # -----
+    # what administrators see
+    admins:
+      headlines:
+        login: "Admin-Login"
+        overview: "Administratoren"
+        create: "Neuen Administrator anlegen"
+        edit: "Administrator bearbeiten"
+        list:
+          edit: 'Liste bearbeiten'
+          all: 'Alle Listen'
+          edit_item: 'Listeneintrag bearbeiten'
+
+      flash:
+        success:
+          created: "Administrator angelegt"
+          edit: "Administrator bearbeitet"
+          delete: "Administrator gelöscht"
+        fail:
+          created: "Administrator konnte nicht angelegt werden"
+          edit: "Administrator konnte nicht gespeichert werden"
+          login: "Dafür musst du eingeloggt sein"
+          one_admin_should_remain: "Der letzte Admin kann nicht gelöscht werden"
+
+    # what users see
+    users:
+      headlines:
+        login: "Kunden-Login"
+        overview: "Kundenübersicht"
+        create: "Kundenkonto erstellen"
+        edit: "Kundenkonto bearbeiten"
+        change_password: "Neues Passwort wählen"
+
+      flash:
+        success:
+          created: "Kundenkonto angelegt"
+          activate: "Kundenkonto aktiviert"
+          deactivate: "Kundenkonto deaktiviert"
+          delete: "Kundenkonto gelöscht"
+          edit: "Kundenkonto bearbeitet"
+          locked: "Kundenkonto gesperrt"
+          unlocked: "Kundenkonto entsperrt"
+          free: "Kundenkonto freigeschaltet"
+          list:
+            create: 'Liste wurde erstellt'
+        fail:
+          need_approval: "Dein Kundenkonto muss erst durch einen Administrator freigeschaltet werden"
+          confirm: "Dieser Kunde hat seine E-Mail Adresse noch nicht bestätigt"
+          login: "Dafür musst du eingeloggt sein"
+          edit: "Kundenkonto konnte nicht bearbeitet werden"

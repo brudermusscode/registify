@@ -1,0 +1,19 @@
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }, data: { turbo: false }) do |f| %>
+  <%= render "users/shared/error_messages", resource: resource %>
+  <%= f.hidden_field :reset_password_token %>
+  <div class="field mb-3">
+    <%= f.label :password, I18n.t('activerecord.attributes.user.new_password'), class: 'form-label' %>
+    <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: 'form-control' %>
+    <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> <%= I18n.t('fields.password_minimum_characters') %>)</em>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation, I18n.t('activerecord.attributes.user.new_password_confirmation'), class: 'form-label' %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+  </div>
+  <div class="actions mt-3 mb-3">
+    <%= f.submit I18n.t('buttons.forgot_password_confirm'), class: 'btn green light shd-hover' %>
+  </div>
+<% end %>
+<%= render "users/shared/links" %>

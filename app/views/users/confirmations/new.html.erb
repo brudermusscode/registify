@@ -1,0 +1,19 @@
+<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name)) do |f| %>
+  <%= render "users/shared/error_messages", resource: resource %>
+  <div class="page-hdr sm">
+    <div class="icon">🐲</div>
+    <div class="text"><%= t('buttons.no_confirmation_mail') %></div>
+  </div>
+  <div class="card">
+    <div class="inr">
+      <div class="mb24">
+        <%= f.label :email, I18n.t('activerecord.attributes.user.email'), class: 'input-label' %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: 'slight-input dark' %>
+      </div>
+      <div class="disfl fldirrow justcontend">
+        <%= f.submit I18n.t('buttons.confirmation_mail_submit'), class: 'btn green light shd-hover' %>
+      </div>
+    </div>
+  </div>
+<% end %>
+<%= render "users/shared/links" %>

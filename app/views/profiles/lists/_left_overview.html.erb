@@ -1,0 +1,66 @@
+<section class="list-overview">
+  <div class="inr">
+    <%= render 'profiles/lists/dropdown_actions', resource: resource %>
+    <div>
+      <% if resource.description? %>
+        <div class="mb24">
+          <div>
+            <strong><%= t('fields.list.description') %></strong>
+          </div>
+          <div class="card">
+            <div class="inr">
+              <div><%= resource.description %></div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <!-- owner/creator -->
+      <div class="mb24">
+        <div><strong><%= t('fields.list.owner') %></strong></div>
+        <div class="card">
+          <div class="inr">
+            <div class="trimt model-link">
+              <span>💁🏼‍♀️ &nbsp; <%= link_for(resource, 'owner') %></span>
+            </div>
+          </div>
+        </div>
+        <% if resource.ownable != resource.creator %>
+          <div class="mt24">
+            <strong><%= t('fields.list.creator') %></strong>
+          </div>
+          <div class="card">
+            <div class="inr">
+              <div class="model-link trimt">
+                <span>🪄 &nbsp; <%= link_for(resource, 'creator') %></span>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <!-- subscribers-->
+      <div>
+        <div>
+          <strong><%= t('fields.list.subscribers') %></strong>
+        </div>
+        <% if @subscribers.any? %>
+          <% @subscribers.each do |subscriber| %>
+            <div class="card">
+              <div class="inr">
+                <div class="trimt model-link">
+                  <span><%= link_to subscriber.operator.email, [subscriber.operator.profile] %></span>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="card">
+            <div class="inr t-center">
+              <div style="font-size:2.4em;line-height:1.6;">🦜</div>
+              <span style="color:rgba(0,0,0,.38);"><%= t('fields.list_permission.none') %></span>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,25 @@
+@import "variables.de.scss";
+@import "classes.de.scss";
+
+.list-overview {
+  left: 0;
+  bottom: 0;
+  position: fixed;
+  height: calc(100vh - 18em);
+  width: 320px;
+  background: var(--color-orange);
+  color: white;
+
+  .inr {
+    padding: 1.6em 2em;
+  }
+}
+
+.list-main {
+  width: calc(100%);
+  margin-top: -5.7em;
+
+  .list-title {
+    @extend .mb24;
+  }
+}

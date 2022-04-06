@@ -1,0 +1,17 @@
+<section class="list-main">
+  <div class="list-title t-center trimt">
+    <span style="font-size:2em;color:white;"><%= @list.name %></span>
+  </div>
+  <div class="card mb12 list-entry-form">
+    <div class="inr sm">
+      <%= render 'profiles/lists/items/form', resource: @list_item, url: [@profile, @list, :list_items] %>
+    </div>
+    <div class="inr sm info mt12 rd-main-bottom" style="background:rgba(255,255,255,.12);">
+      Press <span class="keyboard-key mr4 ml4">➥ Enter</span> to add an entry
+    </div>
+  </div>
+  <% @list_items.each do |item| %>
+    <%= render 'profiles/lists/items/item', resource: item %>
+  <% end %>
+</section>
+<div class="cl"></div>

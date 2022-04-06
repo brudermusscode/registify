@@ -1,0 +1,43 @@
+.disfl {
+  display: flex;
+}
+
+.flexdirrow {
+  flex-direction: row;
+}
+
+.justcontstart {
+  justify-content: start;
+}
+
+.justcontend {
+  justify-content: end;
+}
+
+.justcontcenter {
+  justify-content: center;
+}
+
+.justcontbetween {
+  justify-content: space-between;
+}
+
+.alitstart {
+  align-items: flex-start;
+}
+
+.alitcenter {
+  align-items: center;
+}
+
+.flwrap {
+  flex-wrap: wrap;
+}
+
+.flnowrap {
+  flex-wrap: no-wrap;
+}
+
+.gap6 {
+  gap: 6px;
+}

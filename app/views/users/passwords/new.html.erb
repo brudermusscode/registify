@@ -1,0 +1,19 @@
+<div class="page-hdr bg">
+  <div class="icon">🔒</div>
+  <div class="text"><%= t('buttons.forgot_password') %></div>
+</div>
+<%= form_for(resource, as: resource_name, url: password_path(resource_name)) do |f| %>
+  <%= render "users/shared/error_messages", resource: resource %>
+  <div class="card">
+    <div class="inr">
+      <div class="mb24">
+        <%= f.label :email, t('activerecord.attributes.user.email'), class: 'input-label' %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'slight-input dark' %>
+      </div>
+      <div class="disfl fldirrow justcontend">
+        <%= f.submit t('buttons.forgot_password_send_instructions'), class: 'btn green light shd-hover' %>
+      </div>
+    </div>
+  </div>
+<% end %>
+<%= render "users/shared/links" %>

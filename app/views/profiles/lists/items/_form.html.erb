@@ -1,0 +1,4 @@
+<%= form_for resource, url: url do |form| %>
+  <%= form.text_field :text, class: 'slight-input light', autocomplete: 'off', autofocus: true, placeholder: t('fields.add_list_item') %>
+  <%= form.submit '🪶', class: 'disno' %>
+<% end %>

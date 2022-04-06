@@ -1,0 +1,20 @@
+<%= form_with(model: resource, url: url, data: { turbo: false }) do |form| %>
+  <%= render 'lists/shared/errors', resource: resource %>
+  <div class="field mb-3">
+    <%= form.hidden_field :ownable_type, value: 'Admin' %>
+    <%= form.label :ownable, t('activerecord.attributes.admin_list.admin_id'), class: 'form-label' %>
+    <%= form.text_field :ownable_id, class: 'form-control' %>
+    <span style="font-style:italic;"><%= t('fields.admin_id_exists') %></span>
+  </div>
+  <div class="field mb-3">
+    <%= form.label :name, t('activerecord.attributes.admin_list.name'), class: 'form-label' %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="field mb-3">
+    <%= form.label :description, t('activerecord.attributes.admin_list.description'), class: 'form-label' %>
+    <%= form.text_field :description, class: 'form-control' %>
+  </div>
+  <div class="actions mt-3">
+    <%= form.submit t('buttons.add'), class: 'btn btn-primary' %>
+  </div>
+<% end %>

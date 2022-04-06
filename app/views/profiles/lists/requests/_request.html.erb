@@ -1,0 +1,16 @@
+<div class="card mb12">
+  <div class="inr sm">
+    <div class="lt">
+      <div><%= resource.list.name %></div>
+      <div>📍 <%= resource.list.ownable.username %></div>
+    </div>
+    <div class="disfl fldirrow justcontend gap6">
+      <% if params[:controller] == "profiles/lists/requests" && params[:action] == 'index' %>
+        <%= render 'profiles/lists/requests/actions_index', resource: resource %>
+      <% else %>
+        <%= render 'profiles/lists/requests/actions', resource: resource %>
+      <% end %>
+    </div>
+    <div class="cl"></div>
+  </div>
+</div>

@@ -1,0 +1,2 @@
+<%= button_to 'Annehmen', [:accept, resource.list.ownable.profile, resource.list, resource], params: { list_permission: { list_id: resource.list.id } }, class: 'btn sm green shd-hover light', method: :post %>
+<%= button_to t('buttons.cancel'), [resource.list.ownable.profile, resource.list, resource], method: :delete, class: 'btn sm red shd-hover light' %>

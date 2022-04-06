@@ -1,0 +1,25 @@
+<div class="card mb-2">
+  <div class="card-body" style="position:relative">
+    <div class="model-link"><%= link_to user.email, profile_path(user) %></div>
+    <div class="d-inline-flex mt-2" style="border:1px solid rgba(0,0,0,.12);border-radius:1em;padding:.2em .6em;">
+      <span style="font-size:.8em;"><%= user.confirmed? ? '✅ Bestätigt' : '❌ Nicht bestätigt' %></span>
+    </div>
+    <% if user.freed? %>
+      <div class="d-inline-flex" style="border:1px solid rgba(0,0,0,.12);border-radius:1em;padding:.2em .6em;">
+        <span style="font-size:.8em;">✅ Freigeschaltet</span>
+      </div>
+    <% end %>
+    <%= render 'actions', user: user %>
+    <% if !user.freed? %>
+      <div style="position:absolute;right:1.2em;top:1em;">
+        <% if user.confirmed? %>
+          <%= button_to I18n.t('buttons.free'), free_user_path(user), method: :put, class: 'btn btn-success btn-sm' %>
+        <% else %>
+          <button type="button" class="btn btn-outline-success btn-sm" disabled>
+            <%= I18n.t('buttons.not_freeable') %>
+          </button>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

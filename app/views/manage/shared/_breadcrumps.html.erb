@@ -1,0 +1,56 @@
+<div class="breadcramp justify-content-start align-items-start lt">
+  <%= link_to t('administration.fields.manage'), [:manage, :root] %>
+  <!-- ########## -->
+  <% if params[:controller].match(/^(manage\/users)/) %>
+    <!-- start users -->
+    <span><i class="material-icons md-24 mt-min">chevron_right</i></span>
+    <%= link_to t('administration.fields.user.users'), [:manage, :users] %>
+    <span class="tag-count"><%= count_of(User) %></span>
+    <% if params[:user_id] || params[:id] %>
+      <span><i class="material-icons md-24 mt-min">chevron_right</i></span>
+      🙋 &nbsp; <span class="model-link"><%= link_to @user.email, [@user.profile] %></span>
+    <% end %>
+    <% if params[:controller].match(/^(manage\/users\/lists)/) && params[:user_id] %>
+      <span><i class="material-icons md-24 mt-min">chevron_right</i></span>
+      <%= link_to t('administration.fields.list.lists'), [:manage, @user, :lists] %> <span class="tag-count"><%= count_of(List.of(@user)) %></span>
+    <% end %>
+    <% if params[:action] == 'new' %>
+      <span><i class="material-icons md-24 mt-min">chevron_right</i></span>
+      &nbsp;<%= t('buttons.create') %>
+    <% elsif params[:action] == 'edit' %>
+      <span><i class="material-icons md-24 mt-min">chevron_right</i></span>
+      &nbsp;<%= t('buttons.edit') %>
+    <% end %>
+    <!-- end users -->
+  <% elsif params[:controller].match(/^(manage\/admins)/) %>
+    <!-- start admins -->
+    <span><i class="material-icons md-24 mt-min">chevron_right</i></span>
+    <%= link_to t('administration.fields.admin.admins'), [:manage, :admins] %>
+    <span class="tag-count"><%= count_of(Admin) %></span>
+    <% if params[:admin_id] || params[:id] %>
+      <span><i class="material-icons md-24 mt-min">chevron_right</i></span>
+      🙋 &nbsp; <span class="model-link"><%= link_to @admin.email, [@admin.profile] %></span>
+    <% end %>
+    <% if params[:controller].match(/^(manage\/admins\/lists)/) && params[:admin_id] %>
+      <span><i class="material-icons md-24 mt-min">chevron_right</i></span>
+      <%= link_to t('administration.fields.list.lists'), [:manage, @admin, :lists] %> <span class="tag-count"><%= count_of(List.of(@admin)) %></span>
+    <% end %>
+    <% if params[:action] == 'new' %>
+      <span><i class="material-icons md-24 mt-min">chevron_right</i></span>
+      &nbsp;<%= t('buttons.create') %>
+    <% elsif params[:action] == 'edit' %>
+      <span><i class="material-icons md-24 mt-min">chevron_right</i></span>
+      &nbsp;<%= t('buttons.edit') %>
+    <% end %>
+    <!-- end users -->
+  <% end %>
+  <!-- ########## -->
+  <% if params[:controller].match(/^(manage\/users\/lists)/) && !params[:user_id] %>
+    <span><i class="material-icons md-24 mt-min">chevron_right</i></span>
+    <%= link_to t('administration.fields.list.lists'), [:lists, :manage, :users] %> <span class="tag-count"><%= count_of(List.of_users) %></span>
+  <% elsif params[:controller].match(/^(manage\/admins\/lists)/) && !params[:admin_id] %>
+    <span><i class="material-icons md-24 mt-min">chevron_right</i></span>
+    <%= link_to t('administration.fields.list.lists'), [:lists, :manage, :admins] %> <span class="tag-count"><%= count_of(List.of_admins) %></span>
+  <% end %>
+  <!-- ########## -->
+</div>

@@ -1,0 +1,14 @@
+<%= form_for resource, url: url, data: { turbo: false } do |form| %>
+  <%= render 'profiles/shared/errors', resource: resource %>
+  <div class="field mb-3">
+    <%= form.label :name, t('activerecord.attributes.list.name'), class: 'form-label' %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="field mb-3">
+    <%= form.label :description, t('activerecord.attributes.list.description'), class: 'form-label' %>
+    <%= form.text_field :description, class: 'form-control' %>
+  </div>
+  <div class="actions mt-3">
+    <%= form.submit t('buttons.save'), class: 'btn btn-primary' %>
+  </div>
+<% end %>

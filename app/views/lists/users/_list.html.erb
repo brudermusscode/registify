@@ -1,0 +1,14 @@
+<div class="card mb-2">
+  <%= render 'users/lists/dropdown_actions', user: role, list: list %>
+  <div class="card-body">
+    <div class="d-flex justify-content-between">
+      <span><strong><%= list.name %></strong></span>
+    </div>
+    <div class="mt-2">
+      <div class="model-link trimt"><span class="lt mt-min me-2 material-icons md-24">account_circle</span> <%= link_to list.ownable.email, profile_path(list.ownable) %></div>
+    </div>
+    <div>
+      <span style="font-size:.8em;color:rgba(0,0,0,.24);">Vor <strong><%= distance_of_time_in_words Time.now, list.updated_at %></strong> bearbeitet</span>
+    </div>
+  </div>
+</div>

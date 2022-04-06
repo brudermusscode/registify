@@ -1,0 +1,24 @@
+<div class="card mb12">
+  <div class="inr sm">
+    <div class="mb4 trimt">
+      <span><strong><%= resource.name %></strong></span>
+    </div>
+    <% if resource.ownable != current_session_scope %>
+      <div class="trimt">
+        📍<span class="model-link"><%= link_to resource.ownable.username, [resource.ownable.profile] %></span>
+      </div>
+    <% end %>
+    <div class="trimt">
+      <span style="font-size:.8em;color:rgba(0,0,0,.24);line-height:1;">
+        <%= t('fields.time.last_change') %> <strong><%= distance_of_time_in_words Time.now, resource.updated_at %></strong> <%= t('fields.ago') %>
+      </span>
+    </div>
+    <% if current_session_scope == resource.ownable || current_session_scope.list_permissions?(resource) %>
+      <%= render 'profiles/lists/dropdown_actions', resource: resource %>
+    <% else %>
+      <div>
+        <%= render 'profiles/lists/actions', resource: resource %>
+      </div>
+    <% end %>
+  </div>
+</div>

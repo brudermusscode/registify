@@ -1,0 +1,60 @@
+<%= render 'manage/shared/breadcrumps' %>
+<div class="cl"></div>
+<div class="card">
+  <div class="card-body">
+    <%= form_for @admin, url: [:manage, @admin] do |f| %>
+      <%= render "manage/shared/errors", resource: @admin %>
+      <p><%= I18n.t('fields.required') %></p>
+      <div class="field mb-3 flex-fill">
+        <%= f.label :username, I18n.t('activerecord.attributes.admin.username') + ' *', class: 'form-label' %>
+        <%= f.text_field :username, autofocus: true, class: 'form-control' %>
+      </div>
+      <div class="d-flex align-self-stretch gap-3">
+        <div class="field mb-3 flex-fill">
+          <%= f.label :firstname, I18n.t('activerecord.attributes.admin.firstname') + ' *', class: 'form-label' %>
+          <%= f.text_field :firstname, class: 'form-control' %>
+        </div>
+        <div class="field mb-3 flex-fill">
+          <%= f.label :lastname, I18n.t('activerecord.attributes.admin.lastname') + ' *', class: 'form-label' %>
+          <%= f.text_field :lastname, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="field mb-3">
+        <%= f.label :email, I18n.t('activerecord.attributes.admin.email') + ' *', class: 'form-label' %>
+        <%= f.email_field :email, autocomplete: "email", class: 'form-control' %>
+      </div>
+      <div class="field mb-3">
+        <%= f.label :born_at, I18n.t('activerecord.attributes.admin.birthday'), class: 'form-label' %>
+        <%= f.date_field :born_at, class: 'form-control' %>
+      </div>
+      <div class="field mb-3">
+        <%= f.label :street, I18n.t('activerecord.attributes.admin.street'), class: 'form-label' %>
+        <%= f.text_field :street, class: 'form-control' %>
+      </div>
+      <div class="d-flex align-self-stretch gap-3">
+        <div class="field mb-3 flex-fill">
+          <%= f.label :postcode, I18n.t('activerecord.attributes.admin.postcode'), class: 'form-label' %>
+          <%= f.text_field :postcode, class: 'form-control' %>
+        </div>
+        <div class="field mb-3 flex-fill">
+          <%= f.label :city, I18n.t('activerecord.attributes.admin.city'), class: 'form-label' %>
+          <%= f.text_field :city, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="field mb-3">
+        <%= f.label :password, I18n.t('activerecord.attributes.admin.password') + ' *', class: 'form-label' %>
+        <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> <%= I18n.t('fields.password_minimum_characters') %>)</em>
+        <% end %>
+      </div>
+      <div class="field mb-3">
+        <%= f.label :password_confirmation, I18n.t('activerecord.attributes.admin.password_confirmation') + ' *', class: 'form-label' %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+      </div>
+      <div class="actions mt-3 d-flex justify-content-center">
+        <%= f.submit I18n.t('buttons.sign_up'), class: 'btn btn-success' %>
+      </div>
+    <% end %>
+  </div>
+</div>

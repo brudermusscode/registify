@@ -1,0 +1,18 @@
+<div class="inr">
+  <% if !current_session_scope %>
+    <div class="lt">
+    </div>
+    <div class="rt">
+      <div class="disfl fldirrow gap12">
+        <%= link_to t('buttons.sign_in'), [:new, :user, :session], class: 'btn orange-light light shd-hover' %>
+        <%= link_to '😽 ' + t('buttons.sign_up'), [:new, :user, :registration], class: 'btn black light shd shd-hover' %>
+      </div>
+    </div>
+  <% else %>
+    <% if admin_signed_in? %>
+      <%= render 'shared/admins/hdr_inr' %>
+    <% else %>
+      <%= render 'shared/users/hdr_inr' %>
+    <% end %>
+  <% end %>
+</div>

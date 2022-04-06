@@ -1,0 +1,16 @@
+<div class="card mb-2">
+  <%= render 'manage/users/lists/dropdown_actions', resource: resource %>
+  <div class="card-body">
+    <div class="d-flex justify-content-between trimt" style="width:calc(100% - 2em);">
+      <span><strong><%= resource.name %></strong></span>
+    </div>
+    <% if !params[:user_id] %>
+      <div class="mt-2">
+        <div class="model-link trimt">📍 <%= link_to resource.ownable.email, [resource.ownable.profile] %></div>
+      </div>
+    <% end %>
+    <div class="trimt mt-1">
+      <span style="font-size:.8em;color:rgba(0,0,0,.24);">Vor <strong><%= distance_of_time_in_words Time.now, resource.updated_at %></strong> bearbeitet</span>
+    </div>
+  </div>
+</div>

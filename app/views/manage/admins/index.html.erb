@@ -1,0 +1,20 @@
+<%= render 'manage/shared/breadcrumps' %>
+<div class="d-flex justify-content-end align-items-start mb-3 rt">
+  <%= link_to t('buttons.add'), [:new, :manage, :admin], class: 'btn btn-primary btn-sm' %>
+</div>
+<div class="cl"></div>
+<section class="d-flex justify-content-start gap-1 flex-wrap">
+  <% if @admins.any? %>
+    <% @admins.each do |admin| %>
+      <div style="flex-basis:49.6%;width:49.6%;">
+        <%= render admin, resource: admin %>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="card w-100">
+      <div class="card-body text-center">
+        <span><%= t('administration.fields.admin.none') %></span>
+      </div>
+    </div>
+  <% end %>
+</div>

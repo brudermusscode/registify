@@ -1,0 +1,14 @@
+<div class="card mb-2">
+  <div class="card-body">
+    <div class="d-flex justify-content-between mb-2">
+      <span><strong><%= list.name %></strong></span>
+    </div>
+    <div>
+      <div class="trimt"><span class="lt mt-min me-2 material-icons md-24">account_circle</span> <%= list.ownable.username %></div>
+    </div>
+    <div class="mb-3">
+      <span style="font-size:.8em;color:rgba(0,0,0,.24);">Vor <strong><%= distance_of_time_in_words Time.now, list.updated_at %></strong> bearbeitet</span>
+    </div>
+    <%= render 'lists/admins/actions', role: role, list: list %>
+  </div>
+</div>

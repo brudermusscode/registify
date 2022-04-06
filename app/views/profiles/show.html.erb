@@ -1,0 +1,49 @@
+<%= render 'profiles/banner' %>
+<section class="lt w50">
+  <div class="section-headline light disfl fldirrow justcontbetween alitcenter">
+    <div>📔 <%= t('fields.list.lists') %></div>
+  </div>
+  <% if @profile.owner.lists.any? %>
+    <% @profile.owner.lists.order(updated_at: :desc).limit(6).each do |list| %>
+      <%= render 'profiles/lists/list', resource: list %>
+    <% end %>
+  <% else %>
+    <div class="card">
+      <div class="card-body t-center trimt">
+        <span><%= t('fields.list.none') %></span>
+      </div>
+    </div>
+  <% end %>
+</section>
+<% if @profile.owner.class.name != 'Admin' %>
+  <section class="rt w48">
+    <div class="section-headline light">📎 <%= t('fields.list_request.pending') %> </div>
+    <% if @profile.owner.list_requests.any? %>
+      <% @profile.owner.list_requests.order(created_at: :desc).each do |request| %>
+        <%= render 'profiles/lists/requests/request', resource: request %>
+      <% end %>
+    <% else %>
+      <div class="card transparent light">
+        <div class="trimt t-center inr sm">
+          <span><%= t('fields.list_request.none') %></span>
+        </div>
+      </div>
+    <% end %>
+  </section>
+<% end %>
+<div class="cl"></div>
+<section class="w50 lt mt42">
+  <div class="section-headline light">👨‍👩‍👦 <%= t('fields.list_permission.lists') %> </div>
+  <% if @profile.owner.lists_with_permissions.any? %>
+    <% @profile.owner.lists_with_permissions.each do |list| %>
+      <%= render 'profiles/lists/list', resource: list %>
+    <% end %>
+  <% else %>
+    <div class="card transparent light">
+      <div class="trimt t-center inr sm">
+        <span><%= t('fields.list_permission.none') %></span>
+      </div>
+    </div>
+  <% end %>
+</section>
+<div class="cl"></div>

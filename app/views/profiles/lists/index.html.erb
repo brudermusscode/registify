@@ -1,0 +1,22 @@
+<%= render 'profiles/banner' %>
+<section>
+  <div class="mb-2 d-flex justify-content-between align-items-center">
+    <div>Deine Listen <span class="tag-count"><%= count_of(@lists) %> </span></div>
+    <% if @profile.owner == current_session_scope %>
+      <span><%= link_to t('buttons.add'), [:new, @profile, :list], class: 'btn btn-secondary btn-sm', style: 'text-decoration:none;' %></span>
+    <% end %>
+  </div>
+  <% if @lists.any? %>
+    <% @lists.each do |list| %>
+      <div class="lt" style="width:calc(50% - .4em);margin: .2em;">
+        <%= render 'profiles/lists/list', resource: list %>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="card">
+      <div class="card-body text-center">
+        <%= t('fields.list.none') %>
+      </div>
+    </div>
+  <% end %>
+</section>

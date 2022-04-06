@@ -1,0 +1,7 @@
+<div class="card mb-2">
+  <div class="card-body">
+    <div class="model-link"><%= link_to resource.username, [resource.profile] %></div>
+    <div><%= resource.email %></div>
+    <%= render 'manage/admins/dropdown_actions', resource: resource %>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }) do |f| %>
+  <div class="page-hdr bg">
+    <div class="icon">🦄</div>
+    <div class="text"><%= t('navigation.settings') %></div>
+  </div>
+  <div class="card">
+    <div class="inr">
+      <div class="field mb24">
+        <%= f.label :username, '📍 ' + t('activerecord.attributes.user.username') + ' *', class: 'input-label' %>
+        <%= f.text_field :username, class: 'slight-input dark' %>
+      </div>
+      <div class="field mb24">
+        <%= f.label :email, '📧 ' + t('activerecord.attributes.user.email') + ' *', class: 'input-label' %>
+        <%= f.email_field :email, autocomplete: "email", class: 'slight-input dark' %>
+      </div>
+      <div class="field mb24">
+        <%= f.label :born_at, '🤱🏽 ' + t('activerecord.attributes.user.born_at'), class: 'input-label' %>
+        <%= f.date_field :born_at, class: 'slight-input dark' %>
+      </div>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+      <div class="field mb24">
+        <%= f.label :password, '🔑 ' + t('activerecord.attributes.user.new_password'), class: 'input-label' %>
+        <%= f.password_field :password, autocomplete: "new-password", class: 'slight-input dark' %>
+        <% if @minimum_password_length %>
+          <div class="keyboard-key mt12"><%= @minimum_password_length %> <%= t('fields.password_minimum_characters') %></div>
+        <% end %>
+      </div>
+      <div class="field mb24">
+        <%= f.label :password_confirmation, '🔓 ' + t('activerecord.attributes.user.new_password_confirmation'), class: 'input-label' %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'slight-input dark' %>
+      </div>
+      <div class="field mb24" style="margin-left:-2.4em;background:var(--color-orange-verylight);padding:1.4em 2.4em;width:calc(100% + 4.8em);">
+        <%= f.label :current_password, '🔐 ' + t('activerecord.attributes.user.current_password') + ' *', class: 'input-label' %>
+        <%= f.password_field :current_password, autocomplete: "current-password", class: 'slight-input dark' %>
+        <div class="keyboard-key mt12"><%= t('fields.password_current_explanation') %></div>
+      </div>
+      <div class="lt">
+        <p><%= t('fields.required') %></p>
+      </div>
+      <div class="rt">
+        <%= f.submit t('buttons.save'), class: 'btn green light shd-hover' %>
+      </div>
+      <div class="cl"></div>
+    </div>
+  </div>
+<% end %>
+<%= render 'users/shared/links' %>

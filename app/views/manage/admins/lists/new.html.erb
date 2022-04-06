@@ -1,0 +1,28 @@
+<%= render 'manage/shared/breadcrumps' %>
+<div class="cl"></div>
+<div class="card">
+  <div class="card-body">
+    <%= form_for @list, url: [:manage, @admin, @list] do |form| %>
+      <%= render 'manage/shared/errors', resource: @list %>
+      <% if !params[:admin_id] %>
+        <div class="field mb-3">
+          <%= form.hidden_field :ownable_type, value: 'Admin' %>
+          <%= form.label :ownable, t('activerecord.attributes.list.admin_id'), class: 'form-label' %>
+          <%= form.text_field :ownable_id, class: 'form-control' %>
+          <span style="font-style:italic;"><%= t('fields.admin_id_exists') %></span>
+        </div>
+      <% end %>
+      <div class="field mb-3">
+        <%= form.label :name, t('activerecord.attributes.list.name'), class: 'form-label' %>
+        <%= form.text_field :name, class: 'form-control' %>
+      </div>
+      <div class="field mb-3">
+        <%= form.label :description, t('activerecord.attributes.list.description'), class: 'form-label' %>
+        <%= form.text_field :description, class: 'form-control' %>
+      </div>
+      <div class="actions mt-3">
+        <%= form.submit t('buttons.add'), class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</div>

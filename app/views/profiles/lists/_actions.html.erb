@@ -1,0 +1,8 @@
+<div class="disfl fldirrow justcontbetween mt12">
+  <% if resource.requested_permission?(current_session_scope) %>
+    <button type="button" class="btn sm grey" disabled><%= t('buttons.list_request.requested') %></button>
+    <%= button_to t('buttons.list_request.cancel_request'), [resource.ownable.profile, resource, resource.my_request(current_session_scope)], class: 'btn sm red shd-hover light', method: :delete %>
+  <% else %>
+    <%= button_to t('buttons.list_request.request'), [resource.ownable.profile, resource, :list_requests], params: { list_request: { list_id: resource.id } }, class: 'btn  sm green light shd-hover' %>
+  <% end %>
+</div>

@@ -1,0 +1,28 @@
+<div class="disfl justcontcenter fldirrow flwrap gap12" style="border-top:1px solid rgba(0,0,0,.12);margin-top:1.2em;padding-top:1.2em;">
+  <%- if devise_mapping.registerable? && controller_name != 'registrations' && !current_session_scope %>
+    <%= link_to t('buttons.sign_up'), new_registration_path(resource_name), class: 'btn green shd-min light sm shd-hover' %>
+  <% end %>
+  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' && !current_session_scope %>
+    <%= link_to "Passwort vergessen?", new_password_path(resource_name), class: 'btn orange-light light shd-hover' %>
+  <% end %>
+  <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+    <%= link_to "Keine Bestätigungsmail erhalten?", new_confirmation_path(resource_name), class: 'btn orange-light light shd-hover' %>
+  <% end %>
+  <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+    <%= link_to "Keine Entsperrungsmail erhalten?", new_unlock_path(resource_name), class: 'btn orange-light light shd-hover' %>
+  <% end %>
+  <%- if devise_mapping.omniauthable? %>
+    <%- resource_class.omniauth_providers.each do |provider| %>
+      <%= link_to "Mit #{OmniAuth::Utils.camelize(provider)} einloggen", omniauth_authorize_path(resource_name, provider), method: :post %>
+    <% end %>
+  <% end %>
+  <% if controller_name == 'registrations' && params[:action] == 'edit' %>
+    <%=
+      button_to t('buttons.user.delete'),
+                registration_path(resource_name),
+                data: { confirm: "Are you sure?" },
+                method: :delete,
+                class: 'btn clean light shd-hover'
+    %>
+  <% end %>
+</div>

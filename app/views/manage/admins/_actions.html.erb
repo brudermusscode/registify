@@ -1,0 +1,8 @@
+<div class="d-flex justify-content-center gap-2">
+  <% if !params[:id] %>
+    <%= link_to I18n.t('buttons.edit'), [:edit, :manage, resource], class: 'btn btn-sm btn-primary' %>
+  <% end %>
+  <%= button_to I18n.t('buttons.delete'), [:manage, resource], method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-sm btn-danger' %>
+  <span> | </span>
+  <%= link_to t('buttons.lists'), [:manage, resource, :lists], class: 'btn btn-sm btn-outline-primary' %>
+</div>

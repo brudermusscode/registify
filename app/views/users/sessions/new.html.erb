@@ -1,0 +1,30 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f| %>
+  <%= render "users/shared/error_messages", resource: resource %>
+  <div class="page-hdr bg">
+    <div class="icon">🦆</div>
+    <div class="text"><%= t('buttons.sign_in') %></div>
+  </div>
+  <div class="card">
+    <div class="inr">
+      <div class="mb24">
+        <%= f.label :login, I18n.t('activerecord.attributes.user.login'), class: 'input-label' %><br />
+        <%= f.text_field :login, autofocus: true, class: 'slight-input dark' %>
+      </div>
+      <div class="mb24">
+        <%= f.label :password, t('activerecord.attributes.user.password'), class: 'input-label' %>
+        <%= f.password_field :password, autocomplete: "current-password", class: 'slight-input dark' %>
+      </div>
+      <% if devise_mapping.rememberable? %>
+        <div class="mb24">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me, t('activerecord.attributes.user.stay_logged_in') %>
+        </div>
+      <% end %>
+      <div class="rt">
+        <%= f.submit t('buttons.sign_in'), class: 'btn green light shd-hover' %>
+      </div>
+      <div class="cl"></div>
+    </div>
+  </div>
+<% end %>
+<%= render "users/shared/links" %>

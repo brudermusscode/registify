@@ -1,0 +1,170 @@
+@import "variables.de.scss";
+@import "flex.de.scss";
+
+.trimt {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.model-link {
+  a {
+    color: #ab47bc;
+    background: transparent;
+    transition: all 0.1s linear;
+    padding: 0 0.4em;
+    line-height: 1;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.06);
+    }
+  }
+}
+
+.tag {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 1em;
+  padding: 0.2em 0.6em;
+}
+
+.lt {
+  float: left;
+}
+
+.rt {
+  float: right;
+}
+
+.cl {
+  clear: both;
+}
+
+.trimt {
+  text-overflow: ellipsis; /* IE, Safari (WebKit) */
+  overflow: hidden; /* don't show excess chars */
+  white-space: nowrap; /* force single line */
+  width: 100%;
+}
+
+.posabs {
+  position: absolute;
+}
+
+.gap12 {
+  gap: 1.2em;
+}
+
+.gap24 {
+  gap: 2em;
+}
+
+.t-center {
+  text-align: center;
+}
+
+.t-light {
+  color: white;
+}
+
+.t-shd {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.32);
+}
+
+.disno {
+  display: none;
+}
+
+.keyboard-key {
+  display: inline-block;
+  background: var(--color-grey);
+  line-height: 2.2em;
+  padding: 0 1em;
+  color: var(--color-dark);
+
+  @extend .rd-min;
+}
+
+.info {
+  font-size: 0.8em;
+}
+
+.tran {
+  transition: all 0.1s linear;
+}
+
+.mshd {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 1px;
+}
+
+.mshd-1 {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.rd-min {
+  border-radius: 8px;
+}
+
+.rd-main-bottom {
+  border-radius: 0 0 14px 14px;
+}
+
+.rd-main {
+  border-radius: 14px;
+}
+
+.rd-max {
+  border-radius: 24px;
+}
+
+// margins, paddings
+$margin-size-classes: 0;
+@while $margin-size-classes <= 200 {
+  .mt#{$margin-size-classes} {
+    margin-top: #{$margin-size-classes}px;
+  }
+  .mb#{$margin-size-classes} {
+    margin-bottom: #{$margin-size-classes}px;
+  }
+  .mr#{$margin-size-classes} {
+    margin-right: #{$margin-size-classes}px;
+  }
+  .ml#{$margin-size-classes} {
+    margin-left: #{$margin-size-classes}px;
+  }
+
+  .p#{$margin-size-classes} {
+    padding: #{$margin-size-classes}px;
+  }
+  .pb#{$margin-size-classes} {
+    padding-bottom: #{$margin-size-classes}px;
+  }
+  .pt#{$margin-size-classes} {
+    padding-top: #{$margin-size-classes}px;
+  }
+  .ph#{$margin-size-classes} {
+    padding: #{$margin-size-classes}px 0;
+  }
+  .pv#{$margin-size-classes} {
+    padding: 0 #{$margin-size-classes}px;
+  }
+
+  $margin-size-classes: $margin-size-classes + 2;
+}
+
+// width, height
+@each $current in $hw-percentage-list {
+  .w#{$current} {
+    width: percentage($current/100);
+  }
+  .h#{$current} {
+    height: percentage($current/100);
+  }
+  .hw#{$current} {
+    height: percentage($current/100);
+    width: percentage($current/100);
+  }
+}

@@ -1,0 +1,31 @@
+<div class="card mb-3" style="flex-basis:32.4%;">
+  <% if resource.list.ownable == current_session_scope && resource.operator != current_session_scope %>
+    <%= render 'profiles/lists/permissions/dropdown_actions', resource: resource %>
+  <% end %>
+  <div class="card-body">
+    <div class="d-flex gap-3">
+      <div style="width:calc(100% - 2em);">
+        <div class="model-link trimt">
+          <% if resource.operator == resource.list.ownable %>
+            <span class="material-icons md-24 lt mt-min me-1">admin_panel_settings</span>
+          <% end %>
+          <% if resource.operator_type == 'Admin' %>
+            <%= resource.operator.username %>
+          <% else %>
+            <%= link_to resource.operator.email, [resource.operator.profile] %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="mt-2">
+      <div class="trimt" style="font-size:.8em;color:rgba(0,0,0,.24);">
+        <% if resource.operator == resource.list.ownable %>
+          <span>Owner</span> &bull;
+        <% elsif resource.operator_type == 'Admin' %>
+          <span>Administrator</span> &bull;
+        <% end %>
+        <strong><%= distance_of_time_in_words Time.now, resource.updated_at %></strong> <%= t('fields.ago') %>
+      </div>
+    </div>
+  </div>
+</div>

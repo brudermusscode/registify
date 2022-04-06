@@ -1,0 +1,23 @@
+<div class="d-flex justify-content-center gap-2">
+  <% if !params[:id] %>
+    <%= link_to t('buttons.edit'), [:edit, :manage, resource], class: 'btn btn-sm btn-primary' %>
+  <% end %>
+  <% if resource.freed? %>
+    <% if !resource.activated? %>
+      <%= button_to t('buttons.activate'), [:approve, :manage, resource], method: :patch, class: 'btn-sm btn btn-success' %>
+    <% else %>
+      <%= button_to t('buttons.deactivate'), [:approve, :manage, resource], method: :patch, class: 'btn-sm btn btn-warning' %>
+    <% end %>
+    <% if resource.locked? %>
+      <%= button_to t('buttons.unlock'), [:lock, :manage, resource], method: :patch, class: 'btn btn-sm btn-success' %>
+    <% end %>
+  <% else %>
+    <% if resource.confirmed? %>
+      <%= button_to t('buttons.free'), [:free, :manage, resource], method: :patch, class: 'btn btn-sm btn-success' %>
+    <% end %>
+    <button type="button" class="btn btn-sm btn-warning" disabled><%= t('buttons.deactivate') %></button>
+  <% end %>
+  <%= button_to t('buttons.delete'), [:manage, resource], method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-sm btn-danger' %>
+  <span> | </span>
+  <%= link_to t('buttons.lists'), [:manage, resource, :lists], class: 'btn btn-sm btn-outline-primary' %>
+</div>

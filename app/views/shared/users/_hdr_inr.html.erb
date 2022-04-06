@@ -1,0 +1,26 @@
+<div class="lt">
+</div>
+<div class="rt">
+  <dropdown-menu class="btn orange-light light icon-only shd-hover" style="cursor:default;">
+    <span class="icon">🐱</span>
+    <menu class="right">
+      <ul class="std">
+        <div class="mt12 trimt headline">
+          <%= current_session_scope.username %>
+        </div>
+        <li>
+          <%= link_to '👀 ' + t('navigation.profile'), [current_session_scope.profile] %>
+        </li>
+        <li>
+          <%= link_to '📔 ' + t('navigation.lists'), [current_session_scope.profile, :lists] %>
+        </li>
+        <li>
+          <%= link_to '⚙️ ' + t('navigation.settings'), [:edit, :user, :registration] %>
+        </li>
+        <div class="divider"></div>
+        <li>
+          <%= button_to '⭕️ ' + t('navigation.logout'), [:destroy, :user, :session], method: :delete %>
+        </li>
+      </ul>
+    </menu>
+  </div>

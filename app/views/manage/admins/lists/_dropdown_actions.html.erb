@@ -1,0 +1,36 @@
+<dropdown-menu class="floats right">
+  <span class="material-icons md-24">more_vert</span>
+  <menu>
+    <ul class="std">
+      <li>
+        <%= link_to '📖 ' + t('buttons.show'), [resource.ownable.profile, resource] %>
+      </li>
+      <li>
+        <%= link_to '✏️ ' + t('buttons.edit'), [:edit, :manage, resource.ownable, resource] %>
+      </li>
+      <li>
+        <%= button_to '❌ ' + t('buttons.delete'), [:manage, resource.ownable, resource], method: :delete %>
+      </li>
+      <div style="border-top:1px solid rgba(0,0,0,.08);margin:.8em 0;"></div>
+      <li>
+        <%= button_to '📤 ' + t('buttons.generate_invitation'), [resource.ownable.profile, resource, :list_invitations], params: { list_invitation: { list_id: resource.id } } %>
+      </li>
+      <div style="border-top:1px solid rgba(0,0,0,.08);margin:.8em 0;"></div>
+      <% if resource.list_permissions.any? %>
+        <li>
+          <%= link_to '👨‍👩‍👧 ' + t('buttons.list_permission.permissions'), [resource.ownable.profile, resource, :list_permissions] %>
+        </li>
+      <% end %>
+      <% if resource.list_invitations.any? %>
+        <li>
+          <%= link_to '📥 ' + t('buttons.list_invitation.invitations'), [resource.ownable.profile, resource, :list_invitations] %>
+        </li>
+      <% end %>
+      <% if resource.versions.any? %>
+        <li>
+          <%= link_to '🗃 ' + t('buttons.list.history'), [resource.ownable.profile, resource, :list_versions] %>
+        </li>
+      <% end %>
+    </ul>
+  </menu>
+</dropdown-menu>

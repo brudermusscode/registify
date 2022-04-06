@@ -1,0 +1,54 @@
+<%= link_to I18n.t('buttons.back'), admins_path, class: 'btn btn-light mb-3' %>
+<div class="text-center">
+  <h2><%= I18n.t('administration.admins.headlines.edit') %></h2>
+</div>
+<div class="card">
+  <div class="card-body">
+    <%= form_for(@admin, url: admin_path(@admin), html: { method: :put }, data: { turbo: false }) do |f| %>
+      <%= render "errors", resource: @admin %>
+      <div class="field mb-3 flex-fill">
+        <%= f.label :username, I18n.t('activerecord.attributes.admin.username') + ' *', class: 'form-label' %>
+        <%= f.text_field :username, autofocus: true, class: 'form-control' %>
+      </div>
+      <div class="d-flex align-self-stretch gap-3">
+        <div class="field mb-3 flex-fill">
+          <%= f.label :firstname, I18n.t('activerecord.attributes.admin.firstname') + ' *', class: 'form-label' %>
+          <%= f.text_field :firstname, autofocus: true, class: 'form-control' %>
+        </div>
+        <div class="field mb-3 flex-fill">
+          <%= f.label :lastname, I18n.t('activerecord.attributes.admin.lastname') + ' *', class: 'form-label' %>
+          <%= f.text_field :lastname, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="field mb-3">
+        <%= f.label :email, I18n.t('activerecord.attributes.admin.email') + ' *', class: 'form-label' %>
+        <%= f.email_field :email, autocomplete: "email", class: 'form-control' %>
+      </div>
+      <div class="field mb-3">
+        <%= f.label :born_at, I18n.t('activerecord.attributes.admin.birthday'), class: 'form-label' %>
+        <%= f.date_field :born_at, class: 'form-control' %>
+      </div>
+      <div class="field mb-3">
+        <%= f.label :street, I18n.t('activerecord.attributes.admin.street'), class: 'form-label' %>
+        <%= f.text_field :street, class: 'form-control' %>
+      </div>
+      <div class="d-flex align-self-stretch gap-3">
+        <div class="field mb-3 flex-fill">
+          <%= f.label :postcode, I18n.t('activerecord.attributes.admin.postcode'), class: 'form-label' %>
+          <%= f.text_field :postcode, class: 'form-control' %>
+        </div>
+        <div class="field mb-3 flex-fill">
+          <%= f.label :city, I18n.t('activerecord.attributes.admin.city'), class: 'form-label' %>
+          <%= f.text_field :city, class: 'form-control' %>
+        </div>
+      </div>
+      <!--- TODO: implement password reset with random token and email --->
+      <div class="actions mt-3">
+        <%= f.submit I18n.t('buttons.save'), class: 'btn btn-success' %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="actions mt-3 pt-3 d-flex justify-content-center" style="border-top:1px solid rgba(0,0,0,.12);">
+  <%= render 'actions', admin: @admin %>
+</div>

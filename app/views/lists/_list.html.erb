@@ -1,0 +1,11 @@
+<div class="card mb-2">
+  <div class="card-body">
+    <div>
+      <span><strong><%= resource.name %></strong></span>
+    </div>
+    <div>
+      <span style="font-size:.8em;color:rgba(0,0,0,.24);">Letzte Änderung <strong><%= distance_of_time_in_words Time.now, resource.updated_at %></strong> <%= t('fields.ago') %></span>
+    </div>
+    <%= render 'dropdown_actions', resource: resource %>
+  </div>
+</div>

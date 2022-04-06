@@ -1,0 +1,23 @@
+<%= link_to I18n.t('buttons.back'), :back, class: 'btn btn-light mb-3' %>
+<div class="text-center">
+  <div><%= @list.name %></div>
+  <h3><%= t('buttons.list_invitation.invitations') %></h3>
+</div>
+<% @invitations.each do |inv| %>
+  <div class="card mb-1">
+    <%= render 'profiles/lists/invitations/dropdown_actions', resource: inv %>
+    <div class="card-body">
+      <div class="d-flex gap-3 justify-content-start">
+        <div style="width:70%;font-weight:600;">Token</div>
+        <div style="width:calc(30% - 3em);font-weight:600;">Uses</div>
+      </div>
+      <div class="d-flex gap-3">
+        <div style="width:70%;"><%= inv.token %></div>
+        <div style="width:calc(30% - 3em);"><%= inv.use_count %></div>
+      </div>
+      <div class="text-center mt-1">
+        <span style="font-size:.8em;color:rgba(0,0,0,.24);"><%= t('fields.list_invitation.last_use') %> <strong><%= distance_of_time_in_words Time.now, inv.updated_at %></strong> <%= t('fields.ago') %></span>
+      </div>
+    </div>
+  </div>
+<% end %>

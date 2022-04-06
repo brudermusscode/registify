@@ -1,0 +1,65 @@
+# Additional translations at https://github.com/heartcombo/devise/wiki/I18n
+
+de:
+  devise:
+    confirmations:
+      confirmed: "Deine E-Mail Adresse wurde bestätigt"
+      send_instructions: "Wir haben bereits eine E-Mail mit Bestätigungs-Anweisungen an deine verwendete E-Mail Adresse geschickt"
+      send_paranoid_instructions: "Wenn deine E-Mail Adresse existiert, wirst du in Kürze eine Mail mit Bestätigungs-Anweisungen erhalten"
+    failure:
+      already_authenticated: "Du bist bereits eingeloggt"
+      inactive: "Dieses Kundenkonto wurde noch nicht freigeschaltet"
+      invalid: "Ungültige %{authentication_keys} oder Passwort"
+      locked: "Dein Kundenkonto ist gesperrt"
+      last_attempt: "Dir bleibt noch ein Anmeldeversuch, bevor dein Kundenkonto gesperrt wird"
+      not_found_in_database: "Ungültige %{authentication_keys} oder Passwort"
+      timeout: "Deine Session ist abgelaufen, bitte logge dich erneut ein"
+      unauthenticated: "Bitte logge dich ein oder registriere dich, bevor du fortfahren kannst"
+      unconfirmed: "Bitte verifiziere deine E-Mail Adresse, bevor du fortfahren kannst"
+    mailer:
+      confirmation_instructions:
+        subject: "Verifizierung deiner E-Mail Adresse"
+      reset_password_instructions:
+        subject: "Passwort zurücksetzen"
+      unlock_instructions:
+        subject: "Kundenkonto entsperren"
+      email_changed:
+        subject: "E-Mail Adresse geändert"
+      password_change:
+        subject: "Passwort geändert"
+    omniauth_callbacks:
+      failure: 'Wir konnten dich nicht mit %{kind} authentifizieren, weil "%{reason}".'
+      success: "Du wurdest erfolgreich mit %{kind} authentifiziert"
+    passwords:
+      no_token: "Kein Token"
+      send_instructions: "Du wirst bald eine E-Mail mit Anweisungen zum Zurücksetzen deines Passworts erhalten"
+      send_paranoid_instructions: "Wenn deine E-Mail Adresse existiert, wirst du bald eine E-Mail mit Anweisungen zum Zurücksetzen deines Passworts erhalten"
+      updated: "Dein Passwort wurde geändert und du wurdest eingeloggt!"
+      updated_not_active: "Passwort geändert!"
+    registrations:
+      destroyed: "Dein Kundenkonto wurde gelöscht"
+      signed_up: "Du hast dich erfolgreich registriert"
+      signed_up_but_inactive: "Dein Kundenkonto wurde angelegt. Es muss noch von einem Administrator freigeschaltet werden, bevor du dich einloggen kannst"
+      signed_up_but_locked: "Dein Kundenkonto wurde erfolgreich angelegt. Dieses muss allerdings zuvor entsperrt werden, bevor du dich einloggen kannst"
+      signed_up_but_unconfirmed: "Ein Link zum Bestätigen deines Kundenkontos wurde an deine angegebene E-Mail Adresse gesendet"
+      update_needs_confirmation: "Dein Kundenkonto wurde bearbeitet. Wir haben dir eine E-Mail mit einem Bestätigungscode gesendet, um deine neue E-Mail Adresse zu bestätigen"
+      updated: "Dein Account wurde bearbeitet"
+      updated_but_not_signed_in: "Bitte logge dich erneut ein"
+    sessions:
+      signed_in: "Du wurdest eingeloggt"
+      signed_out: "Du wurdest ausgeloggt"
+      already_signed_out: "Du bist bereits ausgeloggt"
+    unlocks:
+      send_instructions: "Du wirst eine E-Mail mit Entsperrungs-Anweisungen erhalten"
+      send_paranoid_instructions: "Wenn dein Kundenkonto existiert, wirst du eine E-Mail mit Entsperrungs-Anweisungen erhalten"
+      unlocked: "Dein Kundenkonto wurde entsperrt, bitte logge dich erneut ein"
+  errors:
+    messages:
+      already_confirmed: "wurde bereits bestätigt"
+      confirmation_period_expired: "muss in %{period} bestätigt werden, bitte beantrage einen neuen Bestätigungslink"
+      expired: "ist abgelaufen, bitte beantrage einen neuen"
+      not_found: "nicht gefunden"
+      not_locked: "ist nicht gesperrt"
+      not_saved:
+        one: "Folgendes Problem ist aufgetreten"
+        other: "Folgende Probleme sind aufgetreten"

@@ -1,0 +1,26 @@
+<div class="card mb8">
+  <div class="inr sm">
+    <div><%= resource.text %></div>
+    <span style="color:rgba(0,0,0,.24);font-size:.8em;">
+      <strong>
+        <% if resource.my_list_item?(current_session_scope) %>
+          Du
+        <% else %>
+          <span class="model-link">
+            <% if resource.creator.class.name == 'Admin' %>
+              <%= link_to(resource.creator.username, [resource.creator.profile], class: 'model-link', style: 'display:inline-block') %>
+            <% else %>
+              <%= link_to(resource.creator.email, [resource.creator.profile], class: 'model-link', style: 'display:inline-block') %>
+            <% end %>
+          </span>
+        <% end %>
+      </strong>
+      &bull; <%= distance_of_time_in_words Time.now, resource.updated_at %> her
+    </span>
+    <% if admin_signed_in? || resource.my_list_item?(current_session_scope) || resource.list.ownable == current_session_scope %>
+      <div style="right:1em;top:1em;position:absolute;">
+        <%= render 'profiles/lists/items/dropdown_actions', resource: resource %>
+      </div>
+    <% end %>
+  </div>
+</div>
